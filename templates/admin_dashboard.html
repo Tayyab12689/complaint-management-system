@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Admin Dashboard - All Complaints</h2>
+    {% if complaints %}
+        <div class="complaints-list">
+            {% for complaint in complaints %}
+            <div class="complaint-card">
+                <h3>{{ complaint.title }}</h3>
+                <p><strong>Submitted by:</strong> {{ complaint.author.username }}</p>
+                <p><strong>Status:</strong> {{ complaint.status }}</p>
+                <p>{{ complaint.description }}</p>
+                <form method="POST" action="{{ url_for('update_status', complaint_id=complaint.id) }}" class="status-form">
+                    <div class="form-group">
+                        <label for="status-{{ complaint.id }}">Update Status:</label>
+                        <select name="status" id="status-{{ complaint.id }}" class="form-control">
+                            <option value="Pending" {% if complaint.status == 'Pending' %}selected{% endif %}>Pending</option>
+                            <option value="In Progress" {% if complaint.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+                            <option value="Resolved" {% if complaint.status == 'Resolved' %}selected{% endif %}>Resolved</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Status</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No complaints submitted yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

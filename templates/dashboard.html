@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Complaints</h2>
+<a href="{{ url_for('submit_complaint') }}">Submit a New Complaint</a>
+<ul>
+    {% for complaint in complaints %}
+    <li>
+        <strong>{{ complaint.title }}</strong> - {{ complaint.status }}<br>
+        {{ complaint.description }}
+    </li>
+    {% else %}
+    <li>No complaints submitted yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
