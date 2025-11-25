@@ -17,8 +17,8 @@ class User(UserMixin, db.Model):
     is_admin = db.Column(db.Boolean, default=False)
     date_created = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
     
-    # Relationship with complaints
-    complaints = db.relationship('Complaint', backref='author', lazy=True, cascade='all, delete-orphan')
+    # Relationship with complaints - using backref for simplicity
+    complaints = db.relationship('Complaint', backref='user', lazy=True, cascade='all, delete-orphan')
 
     def __init__(self, username, email, password=None, is_admin=False):
         self.username = username
@@ -48,8 +48,10 @@ class Complaint(db.Model):
     status = db.Column(db.String(50), default='Pending')
     date_created = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
     
-    # Foreign key to users table
+    # Foreign key to User
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    
+    # No need for this relationship as we're using backref in the User model
     
     def __repr__(self):
         return f'<Complaint {self.title}>'

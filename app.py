@@ -1,4 +1,6 @@
 import os
+import logging
+from datetime import datetime
 from flask import Flask, render_template, redirect, flash, request, abort, url_for
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from forms import RegistrationForm, LoginForm, ComplaintForm
@@ -6,18 +8,63 @@ from models import db, User, Complaint
 
 # Initialize app
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-here'  # In production, use environment variable
 
-# Set up database
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "instance", "complaints.db")}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Configuration
+app.config.update(
+    SECRET_KEY='your-secret-key-here',  # Change this to a strong secret key in production
+    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL', f'sqlite:///{os.path.join(os.path.abspath(os.path.dirname(__file__)), "instance", "complaints.db")}'),
+    SQLALCHEMY_TRACK_MODIFICATIONS=False,
+    # Security settings
+    SESSION_COOKIE_SECURE=False,  # Set to True in production with HTTPS
+    REMEMBER_COOKIE_SECURE=False,  # Set to True in production with HTTPS
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    # CSRF settings
+    WTF_CSRF_ENABLED=True,
+    WTF_CSRF_SECRET_KEY='your-csrf-secret-key-here',  # Change this to a strong secret key
+    REMEMBER_COOKIE_HTTPONLY=True
+)
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler('app.log')
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # Initialize extensions
 db.init_app(app)
-
 login_manager = LoginManager()
 login_manager.init_app(app)
+login_manager.login_view = 'login'  # Specify the login view
+
+# Error handlers
+@app.errorhandler(404)
+def not_found_error(error):
+    logger.warning(f'404 error: {error}')
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    logger.error(f'500 error: {error}')
+    return render_template('500.html'), 500
+
+# Log before each request
+@app.before_request
+def log_request():
+    logger.info(f"{request.method} {request.path} - {request.remote_addr}")
+
+# Context processor to make current year available in all templates
+@app.context_processor
+def get_current_time():
+    from datetime import timezone
+    return {'now': datetime.now(timezone.utc)}
+
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
@@ -112,12 +159,14 @@ def logout():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    # Get all complaints for the current user
     page = request.args.get('page', 1, type=int)
-    user_complaints = Complaint.query.filter_by(user_id=current_user.id)\
-        .order_by(Complaint.date_created.desc())\
-        .paginate(page=page, per_page=5)
-    return render_template('dashboard.html', complaints=user_complaints)
+    # Use join to ensure we have user data if needed
+    user_complaints = db.session.query(Complaint).filter_by(user_id=current_user.id).order_by(
+        Complaint.date_created.desc()
+    ).paginate(page=page, per_page=5, error_out=False)
+    return render_template('dashboard.html', 
+                         complaints=user_complaints.items, 
+                         pagination=user_complaints)
 
 @app.route('/submit-complaint', methods=['GET', 'POST'])
 @login_required
@@ -148,16 +197,25 @@ def submit_complaint():
 @login_required
 def admin_dashboard():
     if not current_user.is_admin:
-        flash('You do not have permission to access this page.', 'danger')
-        return redirect(url_for('dashboard'))
-        
-    # Get all complaints for admin view
+        abort(403)
     page = request.args.get('page', 1, type=int)
-    all_complaints = Complaint.query\
-        .order_by(Complaint.date_created.desc())\
-        .paginate(page=page, per_page=10)
-        
-    return render_template('admin_dashboard.html', complaints=all_complaints)
+    
+    # Get paginated complaints
+    all_complaints = db.session.query(Complaint).join(User).order_by(
+        Complaint.date_created.desc()
+    ).paginate(page=page, per_page=10, error_out=False)
+    
+    # Calculate statistics
+    total_complaints = Complaint.query.count()
+    resolved_complaints = Complaint.query.filter_by(status='Resolved').count()
+    in_progress_complaints = Complaint.query.filter_by(status='In Progress').count()
+    
+    return render_template('admin_dashboard.html', 
+                         complaints=all_complaints.items,
+                         pagination=all_complaints,
+                         total_complaints=total_complaints,
+                         resolved_complaints=resolved_complaints,
+                         in_progress_complaints=in_progress_complaints)
 
 @app.route('/complaint/status/<int:complaint_id>', methods=['POST'])
 @login_required
@@ -170,15 +228,41 @@ def update_status(complaint_id):
         
     new_status = request.form.get('status')
     if new_status in ['Pending', 'In Progress', 'Resolved']:
-        complaint.status = new_status
-        db.session.commit()
-        flash('Status updated successfully!', 'success')
+        try:
+            complaint.status = new_status
+            db.session.commit()
+            flash(f'Complaint status updated to {new_status}!', 'success')
+        except Exception as e:
+            db.session.rollback()
+            flash('Error updating status. Please try again.', 'danger')
+            app.logger.error(f'Error updating status: {str(e)}')
     else:
         flash('Invalid status!', 'danger')
-        
-    if current_user.is_admin:
+    
+    # Redirect back to the previous page
+    if 'admin_dashboard' in request.referrer:
         return redirect(url_for('admin_dashboard'))
     return redirect(url_for('dashboard'))
+
+@app.route('/complaint/delete/<int:complaint_id>', methods=['POST'])
+@login_required
+def delete_complaint(complaint_id):
+    complaint = Complaint.query.get_or_404(complaint_id)
+    
+    # Only admin can delete complaints
+    if not current_user.is_admin:
+        abort(403)
+        
+    try:
+        db.session.delete(complaint)
+        db.session.commit()
+        flash('Complaint deleted successfully!', 'success')
+    except Exception as e:
+        db.session.rollback()
+        flash('Error deleting complaint. Please try again.', 'danger')
+        app.logger.error(f'Error deleting complaint: {str(e)}')
+    
+    return redirect(url_for('admin_dashboard'))
 
 # ===================== Run App =====================
 def create_tables():

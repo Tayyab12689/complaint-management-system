@@ -1,0 +1,1624 @@
+2025-11-25 20:54:35,981 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 20:54:35,981 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 20:54:57,922 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 20:54:58,001 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:54:58] "GET / HTTP/1.1" 200 -
+2025-11-25 20:54:58,149 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:54:58,195 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:54:58] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-11-25 20:54:58,390 - __main__ - INFO - GET /favicon.ico - 127.0.0.1
+2025-11-25 20:54:58,390 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 20:54:58,392 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:54:58] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-25 20:55:00,657 - __main__ - INFO - GET /register - 127.0.0.1
+2025-11-25 20:55:00,676 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:00] "GET /register HTTP/1.1" 200 -
+2025-11-25 20:55:00,706 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:00,707 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:04,151 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 20:55:04,213 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:04] "GET /login HTTP/1.1" 200 -
+2025-11-25 20:55:04,233 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:04,234 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:05,651 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 20:55:05,879 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:05] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 20:55:05,885 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 20:55:05,930 - app - ERROR - Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 161, in dashboard
+    return render_template('dashboard.html', complaints=user_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\dashboard.html", line 7, in block 'content'
+    {% for complaint in complaints %}
+    ^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pagination' object is not iterable
+2025-11-25 20:55:05,952 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 20:55:05,969 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:05] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-11-25 20:55:05,996 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:05,997 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:25,392 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 20:55:25,394 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:25] "GET / HTTP/1.1" 200 -
+2025-11-25 20:55:25,410 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:25,411 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:28,114 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 20:55:28,116 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:28] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-11-25 20:55:28,122 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 20:55:28,125 - app - ERROR - Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 161, in dashboard
+    return render_template('dashboard.html', complaints=user_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\dashboard.html", line 7, in block 'content'
+    {% for complaint in complaints %}
+    ^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pagination' object is not iterable
+2025-11-25 20:55:28,127 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 20:55:28,129 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:28] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-11-25 20:55:28,152 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:28,153 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:29,905 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 20:55:29,906 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:29] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 20:55:29,915 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 20:55:29,916 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:29] "GET / HTTP/1.1" 200 -
+2025-11-25 20:55:29,935 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:29,936 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:31,123 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 20:55:31,124 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:31] "GET /login HTTP/1.1" 200 -
+2025-11-25 20:55:31,146 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:31,147 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:38,562 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 20:55:38,695 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:38] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 20:55:38,707 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 20:55:38,714 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 201, in admin_dashboard
+    return render_template('admin_dashboard.html', complaints=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 8, in block 'content'
+    {% for complaint in complaints %}
+    ^^^^^^^^^^^^^
+TypeError: 'Pagination' object is not iterable
+2025-11-25 20:55:38,716 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 20:55:38,718 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:38] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 20:55:38,743 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:38,744 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:41,138 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 20:55:41,140 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 201, in admin_dashboard
+    return render_template('admin_dashboard.html', complaints=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 8, in block 'content'
+    {% for complaint in complaints %}
+    ^^^^^^^^^^^^^
+TypeError: 'Pagination' object is not iterable
+2025-11-25 20:55:41,142 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 20:55:41,143 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:41] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 20:55:41,160 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:41,161 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:41,985 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 20:55:41,988 - app - ERROR - Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 161, in dashboard
+    return render_template('dashboard.html', complaints=user_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\dashboard.html", line 7, in block 'content'
+    {% for complaint in complaints %}
+    ^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pagination' object is not iterable
+2025-11-25 20:55:41,990 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 20:55:41,991 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:41] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-11-25 20:55:42,009 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:42,009 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:44,570 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 20:55:44,572 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:44] "GET / HTTP/1.1" 200 -
+2025-11-25 20:55:44,590 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:44,590 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 20:55:45,373 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 20:55:45,377 - app - ERROR - Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 161, in dashboard
+    return render_template('dashboard.html', complaints=user_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\dashboard.html", line 7, in block 'content'
+    {% for complaint in complaints %}
+    ^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'Pagination' object is not iterable
+2025-11-25 20:55:45,379 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 20:55:45,380 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:45] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-11-25 20:55:45,406 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 20:55:45,407 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 20:55:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:00,464 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 21:00:00,464 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 21:00:04,122 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:00:04,141 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:04] "GET / HTTP/1.1" 200 -
+2025-11-25 21:00:04,157 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:04,200 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:06,018 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:00:06,020 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:06] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-11-25 21:00:06,026 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:00:06,038 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:06] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:00:06,059 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:06,059 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:15,259 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:00:15,273 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 198, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+                         pagination=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 32, in block 'content'
+    <td>{{ complaint.user.username }}</td>
+    ^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'models.Complaint object' has no attribute 'user'
+2025-11-25 21:00:15,276 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 21:00:15,279 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:15] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 21:00:15,302 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:15,303 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:18,065 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:00:18,068 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:18] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:00:18,085 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:18,086 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:19,339 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:00:19,341 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:00:19,348 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:00:19,349 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:19] "GET / HTTP/1.1" 200 -
+2025-11-25 21:00:19,371 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:19,372 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:20,892 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:00:20,896 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:20] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:00:20,918 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:20,919 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:22,772 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:00:22,925 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:22] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:00:22,931 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:00:22,934 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:22] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:00:22,956 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:22,957 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:30,811 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:00:30,814 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:30] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:00:30,832 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:30,833 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:32,502 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:00:32,503 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:32] "GET / HTTP/1.1" 200 -
+2025-11-25 21:00:32,523 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:32,524 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:33,942 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:00:33,943 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:33] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-11-25 21:00:33,949 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:00:33,953 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:33] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:00:33,977 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:33,977 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:00:38,742 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:00:38,744 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:38] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:00:38,750 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:00:38,751 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:38] "GET / HTTP/1.1" 200 -
+2025-11-25 21:00:38,774 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:00:38,774 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:00:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:01:14,315 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:01:14,316 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:14] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:01:14,340 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:01:14,341 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:01:18,979 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:01:19,107 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:19] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:01:19,114 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:01:19,117 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 198, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+                         pagination=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 32, in block 'content'
+    <td>{{ complaint.user.username }}</td>
+    ^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'models.Complaint object' has no attribute 'user'
+2025-11-25 21:01:19,119 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 21:01:19,120 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:19] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 21:01:19,147 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:01:19,148 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:01:21,169 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:01:21,172 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 198, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+                         pagination=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 32, in block 'content'
+    <td>{{ complaint.user.username }}</td>
+    ^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'models.Complaint object' has no attribute 'user'
+2025-11-25 21:01:21,173 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 21:01:21,175 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:21] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 21:01:21,191 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:01:21,191 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:01:21,746 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:01:21,749 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:21] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:01:21,766 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:01:21,767 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:01:22,764 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:01:22,767 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 198, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+                         pagination=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 32, in block 'content'
+    <td>{{ complaint.user.username }}</td>
+    ^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'models.Complaint object' has no attribute 'user'
+2025-11-25 21:01:22,768 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 21:01:22,769 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:22] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 21:01:22,793 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:01:22,794 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:01:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:13,368 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 21:03:13,369 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 21:03:15,560 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:03:15,576 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:15] "GET / HTTP/1.1" 200 -
+2025-11-25 21:03:15,592 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:15,634 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:22,249 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:03:22,261 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:22] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:03:22,282 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:22,283 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:23,441 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:03:23,456 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 200, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+                         pagination=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 130, in block 'content'
+    <p class="h2">{{ Complaint.query.filter_by(status='Resolved').count() }}</p>
+    ^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'Complaint' is undefined
+2025-11-25 21:03:23,459 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 21:03:23,462 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:23] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 21:03:23,487 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:23,488 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:26,824 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:03:26,826 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:03:26,832 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:03:26,833 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:26] "GET / HTTP/1.1" 200 -
+2025-11-25 21:03:26,848 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:26,849 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:28,427 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:03:28,431 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:28] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:03:28,460 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:28,460 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:29,672 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:03:29,831 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:29] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:03:29,837 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:03:29,840 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:29] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:03:29,864 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:29,865 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:32,819 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:03:32,821 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:32] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:03:32,827 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:03:32,828 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:32] "GET / HTTP/1.1" 200 -
+2025-11-25 21:03:32,852 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:32,853 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:34,371 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:03:34,372 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:34] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:03:34,393 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:34,394 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:36,994 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:03:37,122 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:37] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:03:37,128 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:03:37,131 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 200, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+                         pagination=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 130, in block 'content'
+    <p class="h2">{{ Complaint.query.filter_by(status='Resolved').count() }}</p>
+    ^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'Complaint' is undefined
+2025-11-25 21:03:37,132 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 21:03:37,134 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:37] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 21:03:37,161 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:37,162 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:38,809 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:03:38,812 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:38] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:03:38,827 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:38,828 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:03:39,523 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:03:39,526 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 200, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+                         pagination=all_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "E:\UNI Work\python\complaint_app\templates\base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 130, in block 'content'
+    <p class="h2">{{ Complaint.query.filter_by(status='Resolved').count() }}</p>
+    ^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'Complaint' is undefined
+2025-11-25 21:03:39,528 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 21:03:39,529 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:39] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 21:03:39,555 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:03:39,555 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:03:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:04:35,840 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 21:04:35,840 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 21:04:38,380 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:04:38,398 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:38] "GET / HTTP/1.1" 200 -
+2025-11-25 21:04:38,412 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:04:38,446 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:04:40,874 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:04:40,889 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:40] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:04:40,911 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:04:40,912 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:04:41,746 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:04:41,760 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:41] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:04:41,780 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:04:41,781 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:04:54,131 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:04:54,134 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:54] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:04:54,154 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:04:54,155 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:04:57,516 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:04:57,522 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:57] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:04:57,543 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:04:57,544 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:04:59,915 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:04:59,919 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:59] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:04:59,933 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:04:59,933 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:04:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:05:01,741 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:05:01,742 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:05:01] "GET / HTTP/1.1" 200 -
+2025-11-25 21:05:01,763 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:05:01,764 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:05:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:05:02,446 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:05:02,451 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:05:02] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:05:02,476 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:05:02,477 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:05:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:06:17,179 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:06:17,184 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:17] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:06:17,199 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:06:17,200 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:06:18,811 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:06:18,815 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:18] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:06:18,833 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:06:18,833 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:06:31,145 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 21:06:31,145 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 21:06:33,304 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:06:33,321 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:33] "GET / HTTP/1.1" 200 -
+2025-11-25 21:06:33,361 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:06:33,366 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:06:33,366 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:06:33,371 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:33] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:06:33,401 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:06:35,048 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:06:35,059 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:35] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:06:35,082 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:06:35,083 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:06:35,084 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:06:35,084 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:06:35,087 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:35] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:06:38,920 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:06:38,940 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:38] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:06:38,966 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:06:38,967 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:06:38,968 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:06:38,968 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:06:38,972 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:38] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:06:57,149 - __main__ - INFO - POST /complaint/status/1 - 127.0.0.1
+2025-11-25 21:06:57,302 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:57] "[32mPOST /complaint/status/1 HTTP/1.1[0m" 302 -
+2025-11-25 21:06:57,310 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:06:57,315 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:57] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:06:57,339 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:06:57,340 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:06:57,341 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:06:57,341 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:06:57,343 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:06:59,253 - __main__ - INFO - POST /complaint/status/2 - 127.0.0.1
+2025-11-25 21:06:59,386 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:59] "[32mPOST /complaint/status/2 HTTP/1.1[0m" 302 -
+2025-11-25 21:06:59,392 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:06:59,396 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:59] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:06:59,413 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:06:59,414 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:06:59,415 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:06:59,415 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:06:59,419 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:06:59] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:01,140 - __main__ - INFO - POST /complaint/status/2 - 127.0.0.1
+2025-11-25 21:07:01,302 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:01] "[32mPOST /complaint/status/2 HTTP/1.1[0m" 302 -
+2025-11-25 21:07:01,308 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:07:01,313 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:01] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:07:01,331 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:01,332 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:01,332 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:01,333 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:01,335 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:01] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:05,331 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:07:05,334 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:05] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:07:05,339 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:07:05,340 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:05] "GET / HTTP/1.1" 200 -
+2025-11-25 21:07:05,363 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:05,364 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:05,364 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:05,364 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:05,365 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:08,587 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:07:08,590 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:08] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:07:08,614 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:08,614 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:08,615 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:08,615 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:08,616 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:10,114 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:07:10,272 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:10] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:07:10,279 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:07:10,282 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:10] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:07:10,308 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:10,309 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:10,309 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:10,310 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:10,313 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:10] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:14,165 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:07:14,167 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:14] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:07:14,173 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:07:14,174 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:14] "GET / HTTP/1.1" 200 -
+2025-11-25 21:07:14,195 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:14,197 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:14,197 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:14,197 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:14,198 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:14] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:15,916 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:07:15,917 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:15] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:07:15,940 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:15,942 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:15,942 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:15,943 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:15,943 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:15] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:18,804 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:07:18,945 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:18] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:07:18,951 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:07:18,956 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:18] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:07:18,985 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:18,986 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:18,986 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:18,986 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:18,990 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:18] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:20,382 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:07:20,384 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:20] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:07:20,407 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:20,408 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:20,410 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:20,411 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:20,413 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:20] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:23,478 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:07:23,482 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:23] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:07:23,507 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:23,508 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:23,509 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:23,509 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:23,512 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:23] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:07:26,621 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:07:26,623 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:26] "GET / HTTP/1.1" 200 -
+2025-11-25 21:07:26,645 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:07:26,646 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:07:26,650 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:07:26,650 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:07:26,652 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:07:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:09,641 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 21:44:09,651 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 21:44:12,893 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:44:12,914 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:12] "GET / HTTP/1.1" 200 -
+2025-11-25 21:44:13,042 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:13,055 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:13,056 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:13,060 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:13] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:13,079 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:15,939 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:44:16,019 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:16] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:16,061 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:16,062 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:16,062 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:16,062 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:16,065 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:16] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:18,543 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:44:18,565 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:18] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:18,589 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:18,590 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:18,591 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:18,591 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:18,594 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:18] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:21,888 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:44:21,892 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:21] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:21,914 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:21,915 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:21,916 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:21,916 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:21,918 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:21] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:26,849 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:44:26,851 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:44:26,858 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:44:26,859 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:26] "GET / HTTP/1.1" 200 -
+2025-11-25 21:44:26,881 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:26,882 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:26,882 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:26,882 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:26,883 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:26] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:28,216 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:44:28,289 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:28] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:44:28,313 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:28,314 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:28,314 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:28,314 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:28,315 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:28] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:31,240 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:44:31,447 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:44:31,453 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:44:31,456 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:31] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:31,481 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:31,482 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:31,482 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:31,483 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:31,486 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:31] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:33,929 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:44:33,931 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:33] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:44:33,937 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:44:33,938 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:33] "GET / HTTP/1.1" 200 -
+2025-11-25 21:44:33,958 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:33,959 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:33,960 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:33,960 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:33,961 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:33] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:35,162 - __main__ - INFO - GET /register - 127.0.0.1
+2025-11-25 21:44:35,226 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:35] "GET /register HTTP/1.1" 200 -
+2025-11-25 21:44:35,255 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:35,256 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:35,258 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:35,259 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:35,259 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:35] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:37,450 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:44:37,450 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:37] "GET / HTTP/1.1" 200 -
+2025-11-25 21:44:37,476 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:37,477 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:37,477 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:37,477 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:37,478 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:37] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:37,929 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:44:37,930 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:37] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:44:37,953 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:37,954 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:37,954 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:37,955 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:37,955 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:37] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:41,752 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:44:41,881 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:41] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:44:41,887 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:44:41,893 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:41] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:41,919 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:41,920 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:41,920 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:41,921 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:41,923 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:44,443 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:44:44,446 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:44] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:44,469 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:44,470 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:44,471 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:44,471 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:44,474 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:46,259 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:44:46,263 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:46] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:46,285 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:46,286 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:46,289 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:46,289 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:46,292 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:46] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:49,278 - __main__ - INFO - POST /complaint/status/1 - 127.0.0.1
+2025-11-25 21:44:49,369 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:49] "[32mPOST /complaint/status/1 HTTP/1.1[0m" 302 -
+2025-11-25 21:44:49,374 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:44:49,380 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:49] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:49,402 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:49,403 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:49,403 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:49,403 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:49,406 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:49] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:53,598 - __main__ - INFO - POST /complaint/status/2 - 127.0.0.1
+2025-11-25 21:44:53,752 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:53] "[32mPOST /complaint/status/2 HTTP/1.1[0m" 302 -
+2025-11-25 21:44:53,757 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:44:53,764 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:53] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:53,787 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:53,788 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:53,789 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:53,789 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:53,793 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:53] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:44:57,644 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:44:57,647 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:57] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:44:57,671 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:44:57,672 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:44:57,673 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:44:57,674 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:44:57,677 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:44:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:48:55,794 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 21:48:55,794 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 21:49:02,954 - __main__ - INFO - GET / - 192.168.1.5
+2025-11-25 21:49:02,964 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:02] "GET / HTTP/1.1" 200 -
+2025-11-25 21:49:03,005 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:49:03,006 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:49:03,007 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:49:03,009 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:03] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:49:03,106 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:03] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-11-25 21:49:03,563 - __main__ - INFO - GET /favicon.ico - 192.168.1.5
+2025-11-25 21:49:03,564 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:49:03,564 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-25 21:49:06,865 - __main__ - INFO - GET /login - 192.168.1.5
+2025-11-25 21:49:06,869 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:06] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:49:06,892 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:49:06,893 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:49:06,894 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:49:06,894 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:49:06,894 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:49:19,426 - __main__ - INFO - POST /login - 192.168.1.5
+2025-11-25 21:49:19,432 - flask_wtf.csrf - INFO - The CSRF tokens do not match.
+2025-11-25 21:49:19,433 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:19] "POST /login HTTP/1.1" 200 -
+2025-11-25 21:49:19,453 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:49:19,454 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:49:19,455 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:49:19,455 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:49:19,456 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:19] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:49:42,988 - __main__ - INFO - POST /login - 192.168.1.5
+2025-11-25 21:49:42,989 - flask_wtf.csrf - INFO - The CSRF tokens do not match.
+2025-11-25 21:49:42,990 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:42] "POST /login HTTP/1.1" 200 -
+2025-11-25 21:49:43,007 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:49:43,007 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:49:43,008 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:49:43,008 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:43] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:49:43,009 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:49:54,262 - __main__ - INFO - POST /login - 192.168.1.5
+2025-11-25 21:49:54,262 - flask_wtf.csrf - INFO - The CSRF tokens do not match.
+2025-11-25 21:49:54,263 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:54] "POST /login HTTP/1.1" 200 -
+2025-11-25 21:49:54,281 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:49:54,281 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:49:54,282 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:49:54,282 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:49:54,283 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:54] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:49:56,572 - __main__ - INFO - GET /login - 192.168.1.5
+2025-11-25 21:49:56,573 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:56] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:49:56,589 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:49:56,590 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:49:56,591 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:49:56,591 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:49:56,591 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:56] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:49:57,551 - __main__ - INFO - GET /register - 192.168.1.5
+2025-11-25 21:49:57,554 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:57] "GET /register HTTP/1.1" 200 -
+2025-11-25 21:49:57,576 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:49:57,577 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:49:57,577 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:49:57,577 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:49:57,578 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:49:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:50:05,328 - __main__ - INFO - GET / - 192.168.1.5
+2025-11-25 21:50:05,328 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:50:05] "GET / HTTP/1.1" 200 -
+2025-11-25 21:50:05,354 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:50:05,355 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:50:05,356 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:50:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:50:05,356 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:50:05,356 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:50:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:50:18,469 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:50:18,478 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:18] "GET / HTTP/1.1" 200 -
+2025-11-25 21:50:18,499 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:50:18,499 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:50:18,500 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:50:18,500 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:50:18,503 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:18] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:50:20,539 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:50:20,560 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:20] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:50:20,583 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:50:20,584 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:50:20,584 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:50:20,584 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:50:20,588 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:20] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:50:21,682 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:50:21,698 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:21] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:50:21,722 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:50:21,723 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:50:21,723 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:50:21,723 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:50:21,726 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:50:21] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:54:44,014 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 21:54:44,014 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 21:54:46,095 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:54:46,105 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:46] "GET / HTTP/1.1" 200 -
+2025-11-25 21:54:46,126 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:54:46,126 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:54:46,127 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:54:46,129 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:46] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:54:46,167 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:54:48,657 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:54:48,660 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:48] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:54:48,681 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:54:48,682 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:54:48,682 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:54:48,683 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:54:48,684 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:48] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:54:50,144 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:54:50,287 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:50] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:54:50,293 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:54:50,321 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:50] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:54:50,345 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:54:50,346 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:54:50,346 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:54:50,347 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:54:50,350 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:54:50] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:55:12,348 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:55:12,358 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:12] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:55:12,386 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:55:12,387 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:55:12,387 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:55:12,387 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:55:12,391 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:12] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:55:15,427 - __main__ - INFO - GET /submit-complaint - 127.0.0.1
+2025-11-25 21:55:15,448 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:15] "GET /submit-complaint HTTP/1.1" 200 -
+2025-11-25 21:55:15,472 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:55:15,473 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:55:15,474 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:55:15,474 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:55:15,477 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:15] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:55:32,558 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:55:32,559 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:32] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:55:32,566 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:55:32,567 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:32] "GET / HTTP/1.1" 200 -
+2025-11-25 21:55:32,589 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:55:32,590 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:55:32,590 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:55:32,591 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:55:32,591 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:32] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:55:37,598 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:55:37,599 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:37] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:55:37,621 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:55:37,622 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:55:37,622 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:55:37,622 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:55:37,623 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:37] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:55:39,589 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:55:39,716 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:55:39,722 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:55:39,725 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:39] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:55:39,748 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:55:39,749 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:55:39,749 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:55:39,750 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:55:39,753 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:39] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:55:41,263 - __main__ - INFO - GET /submit-complaint - 127.0.0.1
+2025-11-25 21:55:41,265 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:41] "GET /submit-complaint HTTP/1.1" 200 -
+2025-11-25 21:55:41,289 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:55:41,290 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:55:41,291 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:55:41,291 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:55:41,293 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:55:41] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:56:02,475 - __main__ - INFO - POST /submit-complaint - 127.0.0.1
+2025-11-25 21:56:02,620 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:02] "[32mPOST /submit-complaint HTTP/1.1[0m" 302 -
+2025-11-25 21:56:02,626 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:56:02,629 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:02] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:56:02,657 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:56:02,658 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:56:02,658 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:56:02,658 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:56:02,661 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:02] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:56:04,762 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 21:56:04,764 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:04] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:56:04,769 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 21:56:04,770 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:04] "GET / HTTP/1.1" 200 -
+2025-11-25 21:56:04,793 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:56:04,795 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:56:04,795 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:56:04,795 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:56:04,796 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:04] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:56:06,690 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 21:56:06,693 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:06] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:56:06,716 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:56:06,717 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:56:06,718 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:56:06,718 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:56:06,719 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:56:09,940 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 21:56:10,072 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:10] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:56:10,079 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:56:10,084 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:10] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:56:10,109 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:56:10,110 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:56:10,111 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:56:10,111 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:56:10,114 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:10] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:56:14,764 - __main__ - INFO - POST /complaint/status/3 - 127.0.0.1
+2025-11-25 21:56:14,911 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:14] "[32mPOST /complaint/status/3 HTTP/1.1[0m" 302 -
+2025-11-25 21:56:14,918 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:56:14,923 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:14] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:56:14,941 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:56:14,942 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:56:14,943 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:56:14,943 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:56:14,946 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:14] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:56:17,441 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:56:17,445 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:17] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:56:17,461 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:56:17,462 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:56:17,462 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:56:17,463 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:56:17,465 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:17] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:56:18,684 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 21:56:18,687 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:18] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:56:18,708 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:56:18,709 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:56:18,710 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:56:18,710 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:56:18,713 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:18] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:56:19,699 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 21:56:19,704 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:19] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:56:19,725 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 21:56:19,726 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:56:19,729 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 21:56:19,729 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:56:19,731 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 21:56:19] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:23,482 - __main__ - INFO - GET / - 192.168.1.5
+2025-11-25 21:58:23,483 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:23] "GET / HTTP/1.1" 200 -
+2025-11-25 21:58:23,507 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:23,508 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:23,508 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:23,509 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:23,509 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:23] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:24,978 - __main__ - INFO - GET /login - 192.168.1.5
+2025-11-25 21:58:24,979 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:24] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:58:25,001 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:25,002 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:25,002 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:25,003 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:25,004 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:25] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:34,857 - __main__ - INFO - POST /login - 192.168.1.5
+2025-11-25 21:58:34,988 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:34] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:58:34,994 - __main__ - INFO - GET /admin_dashboard - 192.168.1.5
+2025-11-25 21:58:34,998 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:34] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:58:35,021 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:35,022 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:35,023 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:35,023 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:35,026 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:35] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:37,569 - __main__ - INFO - GET /dashboard - 192.168.1.5
+2025-11-25 21:58:37,572 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:37] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:58:37,594 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:37,595 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:37,596 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:37,596 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:37,599 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:37] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:40,908 - __main__ - INFO - GET /admin_dashboard - 192.168.1.5
+2025-11-25 21:58:40,912 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:40] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 21:58:40,935 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:40,936 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:40,936 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:40,936 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:40,939 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:40] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:42,804 - __main__ - INFO - GET / - 192.168.1.5
+2025-11-25 21:58:42,805 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:42] "GET / HTTP/1.1" 200 -
+2025-11-25 21:58:42,825 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:42,826 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:42,828 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:42,829 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:42,831 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:42] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:44,035 - __main__ - INFO - GET /logout - 192.168.1.5
+2025-11-25 21:58:44,037 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:44] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:58:44,044 - __main__ - INFO - GET / - 192.168.1.5
+2025-11-25 21:58:44,045 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:44] "GET / HTTP/1.1" 200 -
+2025-11-25 21:58:44,065 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:44,066 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:44,067 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:44,067 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:44,067 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:44] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:45,172 - __main__ - INFO - GET /login - 192.168.1.5
+2025-11-25 21:58:45,173 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:45] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:58:45,197 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:45,198 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:45,198 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:45,199 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:45,199 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:45] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:58:57,484 - __main__ - INFO - POST /login - 192.168.1.5
+2025-11-25 21:58:57,618 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:57] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 21:58:57,625 - __main__ - INFO - GET /dashboard - 192.168.1.5
+2025-11-25 21:58:57,627 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:57] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 21:58:57,651 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:58:57,652 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:58:57,652 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:58:57,653 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:58:57,655 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:58:57] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:59:05,079 - __main__ - INFO - GET /logout - 192.168.1.5
+2025-11-25 21:59:05,081 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:05] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 21:59:05,087 - __main__ - INFO - GET / - 192.168.1.5
+2025-11-25 21:59:05,088 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:05] "GET / HTTP/1.1" 200 -
+2025-11-25 21:59:05,109 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:59:05,110 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:59:05,113 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:59:05,114 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:59:05,115 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:59:06,053 - __main__ - INFO - GET / - 192.168.1.5
+2025-11-25 21:59:06,054 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:06] "GET / HTTP/1.1" 200 -
+2025-11-25 21:59:06,072 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:59:06,073 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:59:06,073 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:59:06,073 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:59:06,074 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:06] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:59:07,583 - __main__ - INFO - GET /login - 192.168.1.5
+2025-11-25 21:59:07,584 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:07] "GET /login HTTP/1.1" 200 -
+2025-11-25 21:59:07,606 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:59:07,607 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:59:07,608 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:59:07,608 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:59:07,609 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:07] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:59:08,567 - __main__ - INFO - GET / - 192.168.1.5
+2025-11-25 21:59:08,568 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:08] "GET / HTTP/1.1" 200 -
+2025-11-25 21:59:08,591 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:59:08,592 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:59:08,592 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:59:08,592 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:59:08,593 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:08] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 21:59:11,103 - __main__ - INFO - GET /register - 192.168.1.5
+2025-11-25 21:59:11,108 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:11] "GET /register HTTP/1.1" 200 -
+2025-11-25 21:59:11,130 - __main__ - INFO - GET /static/css/style.css - 192.168.1.5
+2025-11-25 21:59:11,131 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 21:59:11,133 - __main__ - INFO - GET /static/js/script.js - 192.168.1.5
+2025-11-25 21:59:11,133 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 21:59:11,134 - werkzeug - INFO - 192.168.1.5 - - [25/Nov/2025 21:59:11] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:04:29,924 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 22:04:29,924 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 22:04:32,320 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 22:04:32,345 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:32] "GET / HTTP/1.1" 200 -
+2025-11-25 22:04:32,350 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 22:04:32,353 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:32] "GET / HTTP/1.1" 200 -
+2025-11-25 22:04:32,374 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:04:32,374 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:04:32,375 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:04:32,380 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:32] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:04:32,398 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:04:32,398 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:04:32,400 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:32] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:04:32,426 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:04:32,429 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:04:32,430 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:04:36,949 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 22:04:36,972 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:36] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 22:04:36,997 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:04:36,997 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:04:36,998 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:04:36,998 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:04:37,001 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:37] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:04:46,763 - __main__ - INFO - POST /complaint/delete/2 - 127.0.0.1
+2025-11-25 22:04:46,908 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:46] "[32mPOST /complaint/delete/2 HTTP/1.1[0m" 302 -
+2025-11-25 22:04:46,914 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 22:04:46,919 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:46] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 22:04:46,941 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:04:46,942 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:04:46,942 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:04:46,942 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:04:46,945 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:46] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:04:50,271 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 22:04:50,281 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:50] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 22:04:50,302 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:04:50,303 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:04:50,304 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:04:50,304 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:04:50,307 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:50] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:04:51,983 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 22:04:51,984 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:51] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 22:04:51,992 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 22:04:51,992 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:51] "GET / HTTP/1.1" 200 -
+2025-11-25 22:04:52,015 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:04:52,016 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:04:52,016 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:04:52,016 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:04:52,017 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:52] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:04:54,007 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 22:04:54,010 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:54] "GET /login HTTP/1.1" 200 -
+2025-11-25 22:04:54,032 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:04:54,033 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:04:54,033 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:04:54,033 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:04:54,034 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:54] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:04:56,334 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 22:04:56,482 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:56] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 22:04:56,490 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 22:04:56,493 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:56] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 22:04:56,519 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:04:56,520 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:04:56,520 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:04:56,520 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:04:56,523 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:04:56] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:11:56,296 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 22:11:56,296 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 22:11:59,586 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 22:11:59,605 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:11:59] "GET / HTTP/1.1" 200 -
+2025-11-25 22:11:59,633 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:11:59,633 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:11:59,634 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:11:59,638 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:11:59] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:11:59,679 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:11:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:03,257 - __main__ - INFO - GET /logout - 127.0.0.1
+2025-11-25 22:12:03,259 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:03] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-25 22:12:03,264 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 22:12:03,265 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:03] "GET / HTTP/1.1" 200 -
+2025-11-25 22:12:03,284 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:03,285 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:03,285 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:03,285 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:03,286 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:03] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:12:05,121 - __main__ - INFO - GET /login - 127.0.0.1
+2025-11-25 22:12:05,124 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:05] "GET /login HTTP/1.1" 200 -
+2025-11-25 22:12:05,146 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:05,146 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:05,147 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:05,147 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:05,148 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:12:08,864 - __main__ - INFO - POST /login - 127.0.0.1
+2025-11-25 22:12:09,000 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:09] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-25 22:12:09,006 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 22:12:09,094 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 213, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+    ...<2 lines>...
+                         resolved_complaints=resolved_complaints,
+                         in_progress_complaints=in_progress_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 93, in template
+    <p>Are you sure you want to delete the complaint "{{ complaint? Title }}"? This action cannot be undone.</p>
+    
+jinja2.exceptions.TemplateSyntaxError: unexpected char '?' at 5857
+2025-11-25 22:12:09,116 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 22:12:09,120 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:09] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 22:12:09,146 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:09,147 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:09,147 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:09,148 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:09,151 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:09] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:12:16,433 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 22:12:16,446 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:16] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 22:12:16,467 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:16,468 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:16,468 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:16,468 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:16,472 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:16] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:12:17,347 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 22:12:17,354 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 213, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+    ...<2 lines>...
+                         resolved_complaints=resolved_complaints,
+                         in_progress_complaints=in_progress_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 93, in template
+    <p>Are you sure you want to delete the complaint "{{ complaint? Title }}"? This action cannot be undone.</p>
+    
+jinja2.exceptions.TemplateSyntaxError: unexpected char '?' at 5857
+2025-11-25 22:12:17,356 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 22:12:17,357 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:17] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 22:12:17,380 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:17,381 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:17,382 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:17,382 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:17,384 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:17] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:12:18,977 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 22:12:18,979 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:18] "GET / HTTP/1.1" 200 -
+2025-11-25 22:12:19,000 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:19,000 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:19,001 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:19,001 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:19,004 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:19] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:12:21,915 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 22:12:21,918 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:21] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 22:12:21,942 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:21,943 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:21,943 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:21,944 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:21,947 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:21] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:12:22,828 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 22:12:22,834 - app - ERROR - Exception on /admin_dashboard [GET]
+Traceback (most recent call last):
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\app.py", line 213, in admin_dashboard
+    return render_template('admin_dashboard.html',
+                         complaints=all_complaints.items,
+    ...<2 lines>...
+                         resolved_complaints=resolved_complaints,
+                         in_progress_complaints=in_progress_complaints)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "E:\UNI Work\python\complaint_app\.venv\Lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "E:\UNI Work\python\complaint_app\templates\admin_dashboard.html", line 93, in template
+    <p>Are you sure you want to delete the complaint "{{ complaint? Title }}"? This action cannot be undone.</p>
+    
+jinja2.exceptions.TemplateSyntaxError: unexpected char '?' at 5857
+2025-11-25 22:12:22,836 - __main__ - ERROR - 500 error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-11-25 22:12:22,838 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:22] "[35m[1mGET /admin_dashboard HTTP/1.1[0m" 500 -
+2025-11-25 22:12:22,862 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:22,863 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:22,863 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:22,863 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:22,866 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:22] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:12:27,482 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 22:12:27,484 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:27] "GET / HTTP/1.1" 200 -
+2025-11-25 22:12:27,502 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:12:27,503 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:12:27,503 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:12:27,504 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:12:27,507 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:12:27] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:13:58,834 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.5:5000
+2025-11-25 22:13:58,834 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-11-25 22:14:05,397 - __main__ - INFO - GET / - 127.0.0.1
+2025-11-25 22:14:05,415 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:05] "GET / HTTP/1.1" 200 -
+2025-11-25 22:14:05,446 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:14:05,446 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:14:05,447 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:14:05,452 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:05] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:14:05,487 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:14:09,008 - __main__ - INFO - GET /dashboard - 127.0.0.1
+2025-11-25 22:14:09,020 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:09] "GET /dashboard HTTP/1.1" 200 -
+2025-11-25 22:14:09,040 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:14:09,041 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:14:09,041 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:14:09,042 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:14:09,046 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:09] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -
+2025-11-25 22:14:09,991 - __main__ - INFO - GET /admin_dashboard - 127.0.0.1
+2025-11-25 22:14:10,010 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:10] "GET /admin_dashboard HTTP/1.1" 200 -
+2025-11-25 22:14:10,032 - __main__ - INFO - GET /static/css/style.css - 127.0.0.1
+2025-11-25 22:14:10,033 - __main__ - INFO - GET /static/js/script.js - 127.0.0.1
+2025-11-25 22:14:10,033 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-11-25 22:14:10,034 - __main__ - WARNING - 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-11-25 22:14:10,036 - werkzeug - INFO - 127.0.0.1 - - [25/Nov/2025 22:14:10] "[33mGET /static/js/script.js HTTP/1.1[0m" 404 -

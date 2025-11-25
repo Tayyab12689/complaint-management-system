@@ -1,16 +1,81 @@
 {% extends 'base.html' %}
 
+{% block title %}Dashboard{% endblock %}
+
 {% block content %}
-<h2>Your Complaints</h2>
-<a href="{{ url_for('submit_complaint') }}">Submit a New Complaint</a>
-<ul>
-    {% for complaint in complaints %}
-    <li>
-        <strong>{{ complaint.title }}</strong> - {{ complaint.status }}<br>
-        {{ complaint.description }}
-    </li>
+<div class="container mt-4">
+    <h2>Your Complaints</h2>
+    <a href="{{ url_for('submit_complaint') }}" class="btn btn-primary mb-3">Submit New Complaint</a>
+    
+    {% if complaints %}
+        <div class="list-group mb-3">
+            {% for complaint in complaints %}
+            <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ complaint.title }}</h5>
+                    <span class="badge bg-{{ 'success' if complaint.status == 'Resolved' else 'warning' }}">
+                        {{ complaint.status }}
+                    </span>
+                </div>
+                <p class="mb-1">{{ complaint.description }}</p>
+                <small class="text-muted">Submitted on: {{ complaint.date_created.strftime('%Y-%m-%d %H:%M') }}</small>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        {% if pagination.pages > 1 %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {% if pagination.has_prev %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('dashboard', page=pagination.prev_num) }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&laquo;</span>
+                    </li>
+                {% endif %}
+                
+                {% for page in pagination.iter_pages() %}
+                    {% if page %}
+                        {% if page != pagination.page %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ url_for('dashboard', page=page) }}">{{ page }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item active">
+                                <span class="page-link">{{ page }}</span>
+                            </li>
+                        {% endif %}
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link">...</span>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if pagination.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('dashboard', page=pagination.next_num) }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">&raquo;</span>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+        
     {% else %}
-    <li>No complaints submitted yet.</li>
-    {% endfor %}
-</ul>
+        <div class="alert alert-info">
+            You haven't submitted any complaints yet. <a href="{{ url_for('submit_complaint') }}">Submit your first complaint</a>.
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

@@ -1,5 +1,35 @@
-Flask==3.1.2
-Flask-WTF==1.2.2
-Flask-SQLAlchemy==3.1.1
-Flask-Login==0.6.3
-email-validator==2.3.0
+# Core Dependencies
+Flask==2.3.3
+Werkzeug==2.3.7
+Jinja2==3.1.2
+itsdangerous==2.1.2
+click==8.1.7
+
+# Database
+Flask-SQLAlchemy==2.5.1
+SQLAlchemy==1.4.50
+
+# Authentication
+Flask-Login==0.6.2
+Flask-WTF==1.2.1
+email-validator==2.1.0.post1
+
+# Forms
+WTForms==3.0.1
+
+# Production
+python-dotenv==1.0.0
+gunicorn==21.2.0
+
+# Development (optional)
+python-dateutil==2.8.2
+pytz==2023.3.post1
+
+# Testing (optional)
+pytest==7.4.2
+pytest-cov==4.1.0
+
+# Linting (optional)
+flake8==6.1.0
+black==23.9.1
+isort==5.12.0

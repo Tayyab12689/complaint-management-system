@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="display-1 text-danger">500</h1>
+            <h2 class="mb-4">Server Error</h2>
+            <p class="lead">Oops! Something went wrong on our end. We're working to fix it.</p>
+            <p class="text-muted">The error has been logged and our team has been notified.</p>
+            <div class="mt-4">
+                <a href="{{ url_for('index') }}" class="btn btn-primary me-2">
+                    <i class="fas fa-home me-2"></i>Return to Home
+                </a>
+                <a href="mailto:support@example.com" class="btn btn-outline-secondary">
+                    <i class="fas fa-envelope me-2"></i>Contact Support
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
